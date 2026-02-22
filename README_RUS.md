@@ -1,0 +1,267 @@
+[English version: README.md](README.md)
+
+Это форк проекта [SimpleOPDS by Dmitry V.Shelepnev](https://github.com/mitshel/sopds), адаптированный для работы на современных системах в 2026 году
+
+Основные изменения:
+- код скорректирован для совместимости с актуальными версиями питона и его модулей
+- базой данных по умолчанию считается MySQL так как PostgreSQL не очень хорошо работает с эмоджи в названиях файлов
+- АУТЕНТИФИКАЦИЯ ПОЛЬЗОВАТЕЛЕЙ ПО УМОЛЧАНИЮ ОТКЛЮЧЕНА, т.е. доступ открыт для всех (для включения поменяйте значение SOPDS_AUTH на True в sopds/settings.py)
+- README.md переписаны для отражения изменений, перечисленных выше
+
+Не обновлено и не протестировано:
+- работа в Sqlite
+- телеграм-бот
+- конвертеры fb2epub
+
+Протестировано на Lubuntu 22, должно работать на Ubuntu-подобных дистрибутивах и Debian.
+Функциональность телеграм-бота не протестирована
+
+#### 1. Установка
+1.1 Скачать папку sopds-master из гитхаба в папку по вашему выбору.
+
+1.2 Зависимости
+Установить необходимые модули
+
+    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
+
+1.3 Настройить базу данных MySQL
+
+	sudo mysql -uroot -proot_pass mysql
+	mysql> create database if not exists sopds default charset = utf8;
+    create user 'sopds'@'localhost' identified by 'sopds';
+	mysql> grant all privileges on sopds. * to 'sopds'@'localhost'; //changed
+	mysql> commit;
+	mysql> ^ C
+ctrl+z
+
+Если вместо MySQL вы хотите использовать встроенную базу данных Sqlite (не рекомендуется), в файле sopds/settings.py закомментируйте блок DATABASES, относящийся к MySQL, раскомментируйте блок DATABASES, относящийся к 'default', и пропустите данный шаг.
+
+#### 2. Инициализация
+
+2.1 Производим инициализацию базы данных и заполнение начальными данными (жанры)
+
+	python3 manage.py migrate
+	python3 manage.py sopds_util clear
+
+2.2 Cоздаем суперпользователя
+
+	python3 manage.py createsuperuser
+	
+2.3 Настраиваем путь к Вашему каталогу с книгами и при необходимости переключаем язык интерфейса на русский
+
+	python3 manage.py sopds_util setconf SOPDS_ROOT_LIB 'Path to the directory with books'
+	python3 manage.py sopds_util setconf SOPDS_LANGUAGE en-EN
+
+2.4 Запускаем SCANNER сервер (опционально, необходим для автоматизированного периодического пересканирования коллекции) 
+    Примите во внимание, что в  настройках по умолчанию задан периодический запуск сканирования 2 раза в день 12:00 и 0:00.
+
+	python3 manage.py sopds_scanner start --daemon
+
+2.5 Запускаем встроенный HTTP/OPDS сервер
+
+	python3 manage.py sopds_server start --daemon
+
+Однако наилучшим способом, все же является настройка в качестве HTTP/OPDS серверов Apache или Nginx 
+(точка входа ./sopds/wsgi.py)
+
+2.6 Чтобы не дожидаться начала сканирования по расписанию, можно сообщить процессу sopds_scanner о необходимости немедленного сканирования. Сделать это можно, установив конфигурационный параметр SOPDS_SCAN_START_DIRECTLY = True двумя способами:
+
+а) из консоли при помощи команды
+
+	python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
+	
+б) При попомощи страницы администрирования Web-интерфейса http://<Ваш сервер>:8001/admin/ 
+   (Далее CONSTANCE -> Настройки -> 1. General Options -> SOPDS_SCAN_START_DIRECTLY)
+	
+2.7 Доступ к информации  
+Если все предыдущие шаги выполнены успешно, то к библиотеке можно получить доступ по следующим URL: 
+
+>     OPDS-version: http://<Your server>:8001/opds/
+>     HTTP-version: http://<Your server>:8001/
+
+2.8 При необходимости настраиваем и запускаем Telegram-бот (не протестированы 
+
+Процесс создания ботов в телеграм очень прост, для создания своего бота в мессенджере Telegram необходимо подключиться к каналу [@BotFather](https://telegram.me/botfather) и дать команду создания нового бота **/newbot**. После чего ввести имя бота (например: **myopds**), а затем имя пользователя для этого бота, обязательно заканчивающегося на "bot" (например: **myopds_bot**).
+В результате, вам будет выдан API_TOKEN, который нужно использовать в следующих командах, которые запустят Вашего личного телеграм-бота, который позволит Вам, используя мессенджер Telegram получать быстрый доступ к личной библиотеке.    
+
+    python3 manage.py sopds_util setconf SOPDS_TELEBOT_API_TOKEN  "<Telegram API Token>"
+    python3 manage.py sopds_util setconf SOPDS_TELEBOT_AUTH False
+    python3 manage.py sopds_telebot start --daemon
+    
+Командой,    
+
+    python3 manage.py sopds_util setconf SOPDS_TELEBOT_AUTH True
+    
+можно ограничить использование Вашего бота пользователями Telegram. В этом случае Ваш бот будет обслуживать запросы только таких пользователей, чье имя в telegram совпадает с существующим имененм пользователей в вашей БД Simple OPDS.
+
+
+#### 3. Конвертер fb2epub http://code.google.com/p/epub-tools/ (НЕ ПРОТЕСТИРОВАНО И НЕ ОБНОВЛЕНО)
+Конвертер написан на Java, так что в вашей системе должнен быть установлен как минимум JDK 1.5
+- также сначала скачать последнюю версию по ссылке выше (текущая уже находится в проекте)  
+- скопировать jar-файл например в каталог **./convert/fb2epub** (Здесь уже лежит shell-скрипт для запуска jar-файла)  
+- При помощи веб-интерфейса администратора или указанных ниже команд консоли задать путь shell-скрипту fb2epub (или fb2epub.cmd для Windows) 
+
+>     python3 manage.py sopds_util setconf SOPDS_FB2TOEPUB "convert/fb2epub/fb2epub"
+
+4.3 Конвертер fb2conv (конвертация в epub и mobi) http://www.the-ebook.org/forum/viewtopic.php?t=28447  
+- Необходимо установить python 2.7 и пакеты lxml, cssutils:   
+  
+         yum install python  
+         yum install python-lxml  
+         yum install python-cssutils  
+  
+- скачать последнюю версию конвертера по ссылке выше (текущая уже находится в каталоге fb2conv проекта)  
+- скачать утилиту KindleGen с сайта Amazon http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000234621 
+  (текущая версия утилиты уже находится в каталоге fb2conv проекта)  
+- скопировать архив проекта в **./convert/fb2conv** (Здесь уже подготовлены shell-скрипты для запуска конвертера) и разархивировать его  
+- Для конвертации в MOBI нужно архив с утилитой KindleGen положить в каталог с конвертером и разархивировать  
+- При помощи веб-интерфейса администратора или указанных ниже команд консоли задать пути к соответствующим скриптам:  
+   
+>     python3 manage.py sopds_util setconf SOPDS_FB2TOEPUB "convert/fb2conv/fb2epub"
+>     python3 manage.py sopds_util setconf SOPDS_FB2TOMOBI "convert/fb2conv/fb2mobi"
+
+
+#### 4. Консольные команды Simple OPDS  
+
+Показать информацию о коллекции книг:  
+
+    python3 manage.py sopds_util info
+    
+Очистить базу данных с коллекцией книг, загрузить справочник жанров:
+
+    python3 manage.py sopds_util clear [--verbose]
+    
+Сохранить свой справочник жанров в файл opds_catalog/fixtures/mygenres.json:
+
+    python3 manage.py sopds_util save_mygenres
+    
+Загрузить свой справочник жанров из файла opds_catalog/fixtures/mygenres.json:
+
+    python3 manage.py sopds_util load_mygenres   
+    
+Только при использовании PostgerSQL. Оптимизация таблицы opds_catalog_book (fillfactor = 50). После этого сканирование происходит значительно быстрее:
+
+    python3 manage.py sopds_util pg_optimize  
+    
+Посмотреть все параметры конфигурации:
+
+    python3 manage.py sopds_util getconf  
+    
+Посмотреть значение конкретного параметра конфигурации:
+
+    python3 manage.py sopds_util getconf SOPDS_ROOT_LIB
+    
+Задать значение конкретного параметр конфигурации:
+
+    python3 manage.py sopds_util setconf SOPDS_ROOT_LIB '\home\files\books'
+                 
+Запустить однократное сканирование коллекции книг:
+
+    python3 manage.py sopds_scanner scan [--verbose] [--daemon]
+    
+Запустить сканирование коллекции книг по расписанию:    
+
+    python3 manage.py sopds_scanner start [--verbose] [--daemon]
+   
+Запустить встроенный web-сервер:    
+
+    python3 manage.py sopds_server start [--host <IP address>] [--port <port N>] [--daemon]
+
+#### 5. Опции каталогизатора Simple OPDS (www.sopds.ru)
+Каталогизатор Simple OPDS имеет дополнительные настройки которые можно изменять при помощи интерфейса администратора http://<Ваш сервер>/admin/  
+
+**SOPDS_LANGUAGE** - изменение языка интерфейса. 
+
+**SOPDS_ROOT_LIB** - содержит путь к каталогу, в котором расположена ваша коллекция книг.  
+
+**SOPDS_BOOK_EXTENSIONS** - Список форматов книг, которые будут включаться в каталог.  
+(по умолчанию SOPDS_BOOK_EXTENSIONS = '.pdf .djvu .fb2 .epub')  
+	
+**SOPDS_DOUBLES_HIDE** - Скрывает, найденные дубликаты в выдачах книг.  
+(по умолчанию SOPDS_DOUBLES_HIDE = True)  
+	
+**SOPDS_FB2SAX** - Программа может извлекать метаданные из FB2 двумя парсерами 
+  - FB2sax - штатный парсер, используемый в SOPDS с версии 0.01, этот парсер более быстрый, и извлекает метаданные даже из невалидных файлов FB2
+  - FB2xpath - появился в версии 0.42, работает помеделеннее, не терпит невалидных FB2
+(по умолчанию SOPDS_FB2SAX = True)  
+	
+**SOPDS_COVER_SHOW** - способ показа обложек (False - не показывать, True - извлекать обложки на лету и показывать).  
+(по умолчанию SOPDS COVER_SHOW = True)  
+    
+**SOPDS_ZIPSCAN** - Настройка сканирования ZIP архивов.  
+(по умолчанию SOPDS_ZIPSCAN = True)  
+	
+**SOPDS_ZIPCODEPAGE** - Указываем какая кодировка для названий файлов используется в ZIP-архивах. Доступные кодировки: cp437, cp866, cp1251, utf-8. По умолчанию применяется кодировка cp437. Поскольку в самом ZIP архиве сведения о кодировке, в которой находятся имена файлов - отсутствуют, то автоматически определить правильную кодировку для имен файлов не представляется возможным, поэтому для того чтобы кириллические имена файлов не ваыглядели как крякозябры следует применять кодировку cp866.  
+(по умолчанию SOPDS_ZIPCODEPAGE = "cp866")  
+
+**SOPDS_INPX_ENABLE** - Если True, то при обнаружении INPX файла в каталоге, сканер не сканирует его содержимое вместе с подгаталогами, а загружает	данные из найденного INPX файла. Сканер считает что сами архивыс книгами расположены в этом же каталоге. Т.е. INPX-файл должен находится именно в папке с архивами книг. 
+Однако учтите, что использование данныз из INPX приведет к тому, что в библиотеке будет отсутствовать аннотация, т.к. в INPX аннотаций нет!!!  
+(по умолчанию SOPDS_INPX_ENABLE = True)  
+
+**SOPDS_INPX_SKIP_UNCHANGED** - Если True, то сканер пропускает повторное сканирование, если размер INPX не изменялся.  
+(по умолчанию SOPDS_INPX_SKIP_UNCHANGED = True)  
+
+**SOPDS_INPX_TEST_ZIP** - Если  True, то сканер пытается найти описанный в INPX архив. Если какой-то архив не обнаруживается, то сканер не будет добавлять вязанные с ним данные из INPX в базу данных соответсвенно, если SOPDS_INPX_TEST_ZIP = False, то никаких проверок сканер не производит, а просто добавляет данные из INPX в БД. Это гораздо быстрее.  
+(по умолчанию SOPDS_INPX_TEST_ZIP = False)  
+
+**SOPDS_INPX_TEST_FILES** - Если  True, то сканер пытается найти описанный в INPX конкретный файл с книгой (уже внутри архивов). Если какой-то файл не обнаруживается, то сканер не будет добавлять эту книгу в базу данных соответсвенно, если INPX_TEST_FILES = False, то никаких проверок сканер не производит, а просто добавляет книгу из INPX в БД. Это гораздо быстрее.
+(по умолчанию SOPDS_TEST_FILES = False)  
+
+**SOPDS_DELETE_LOGICAL** - True приведет к тому, что при обнаружении сканером, что книга удалена, запись в БД об этой книге будет удалена логически (avail=0). Если значение False, то произойдет физическое удаление таких записей из базы данных. Пока работает только SOPDS_DELETE_LOGICAL = False.  
+(по умолчанию SOPDS_DELETE_LOGICAL = False)  
+
+**SOPDS_SPLITITEMS** - Устанавливает при достижении какого числа элементов в группе - группа будет "раскрываться". Для выдач "By Title", "By Authors", "By Series".  
+(по умолчанию SOPDS_SPLITITEMS = 300)  
+
+**SOPDS_MAXITEMS** - Количество выдаваемых результатов на одну страницу.  
+(по умолчанию SOPDS_MAXITEMS = 60)  
+
+**SOPDS_FB2TOEPUB** и **SOPDS_FB2TOMOBI** задают пути к програмам - конвертерам из FB2 в EPUB и MOBI.
+(по умолчанию SOPDS_FB2TOEPUB = "")  
+(по умолчанию SOPDS_FB2TOMOBI = "")  
+
+**SOPDS_TEMP_DIR** задает путь к временному каталогу, который используется для копирования оригинала и результата конвертации.  
+(по умолчанию SOPDS_TEMP_DIR = os.path.join(BASE_DIR,'tmp'))  
+
+**SOPDS_TITLE_AS_FILENAME** - Если True, то при скачивании вместо оригинального имени файла книги выдает транслитерацию названия книги.  
+(по умолчанию SOPDS_TITLE_AS_FILENAME = True)  
+
+**SOPDS_ALPHABET_MENU** - Включение дополнительного меню выбора алфавита.  
+(по умолчанию SOPDS_ALPHABET_MENU = True)  
+
+**SOPDS_NOCOVER_PATH** - Файл обложки, которая будет демонстрироваться для книг без обложек.  
+(по умолчанию SOPDS_NOCOVER_PATH = os.path.join(BASE_DIR,'static/images/nocover.jpg'))
+
+**SOPDS_AUTH** - Включение BASIC - авторизации.  
+(по умолчанию SOPDS_AUTH = True)  
+
+**SOPDS_SERVER_LOG** и **SOPDS_SCANNER_LOG** задают размещение LOG файлов этих процессов.  
+(по умолчанию SOPDS_SERVER_LOG = os.path.join(BASE_DIR,'opds_catalog/log/sopds_server.log'))  
+(по умолчанию SOPDS_SCANNER_LOG = os.path.join(BASE_DIR,'opds_catalog/log/sopds_scanner.log'))  
+
+**SOPDS_SERVER_PID** и **SOPDS_SCANNER_PID** задают размещение PID файлов этих процессов при демонизации.  
+(по умолчанию SOPDS_SERVER_PID = os.path.join(BASE_DIR,'opds_catalog/tmp/sopds_server.pid'))  
+(по умолчанию SOPDS_SCANNER_PID = os.path.join(BASE_DIR,'opds_catalog/tmp/sopds_scanner.pid'))  
+
+Параметры **SOPDS_SCAN_SHED_XXX** устанавливают значения шедулера, для периодического сканирования коллекции книг при помощи **manage.py sopds_scanner start**.  Возможные значения можно найти на следующей странице: # https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html#module-apscheduler.triggers.cron  
+Изменения указанных ниже параметров через Web-интерфейс или командную строку проверяется процессом sopds_scanner каждые 10 минут. 
+В случае обнаружения изменений sopds_scanner автоматически вносит соответсвующие изменения в планировщик.  
+
+(по умолчанию SOPDS_SCAN_SHED_MIN = '0')  
+(по умолчанию SOPDS_SCAN_SHED_HOUR = '0,12')  
+(по умолчанию SOPDS_SCAN_SHED_DAY = '*')  
+(по умолчанию SOPDS_SCAN_SHED_DOW = '*')  
+
+**SOPDS_SCAN_START_DIRECTLY** - установка для этого параметра значения True, приведет к тому, что при очередной проверке процессом sopds_scanner этого флага (каждые 10 минут)
+запустится внеочередное сканированеи коллекции, а указаный флаг вновь сброситься в False.
+
+**SOPDS_CACHE_TIME** - Время хранения страницы в кэше
+(по умолчанию SOPDS_CACHE_TIME = 1200)
+
+**SOPDS_TELEBOT_API_TOKEN** - API TOKEN для Telegram Бота
+**SOPDS_TELEBOT_AUTH** - Если True, то Бот будет предоставлять доступ к библиотеке, только пользователям, чье имя в Telegram совпадает с именем
+существующего пользователя в БД Simple OPDS.
+(по умолчанию SOPDS_TELEBOT_AUTH = True)
+
+**SOPDS_TELEBOT_MAXITEMS** - Максимальное число одновременно выводимых элеменов в сообщении Telegram
+(по умолчанию SOPDS_TELEBOT_MAXITEMS = 10)
