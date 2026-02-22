@@ -1,0 +1,272 @@
+2019-07-19 19:56:20,886 INFO     Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-07-19 19:56:20,886 INFO     Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-07-19 19:56:20,887 INFO     Added job "Command.scan" to job store "default"
+2019-07-19 19:56:20,887 INFO     Added job "Command.check_settings" to job store "default"
+2019-07-19 19:56:20,888 INFO     Scheduler started
+2019-07-19 20:00:00,001 INFO     Running job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:00:00 MSK)" (scheduled at 2019-07-19 20:00:00+03:00)
+2019-07-19 20:00:00,019 INFO     Job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:10:00 MSK)" executed successfully
+2019-07-19 20:10:00,002 INFO     Running job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:10:00 MSK)" (scheduled at 2019-07-19 20:10:00+03:00)
+2019-07-19 20:10:00,010 INFO     Job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:20:00 MSK)" executed successfully
+2019-07-19 20:20:00,002 INFO     Running job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:20:00 MSK)" (scheduled at 2019-07-19 20:20:00+03:00)
+2019-07-19 20:20:00,015 INFO     Job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:30:00 MSK)" executed successfully
+2019-07-19 20:30:00,002 INFO     Running job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:30:00 MSK)" (scheduled at 2019-07-19 20:30:00+03:00)
+2019-07-19 20:30:00,014 INFO     Job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:40:00 MSK)" executed successfully
+2019-07-19 20:40:00,003 INFO     Running job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:40:00 MSK)" (scheduled at 2019-07-19 20:40:00+03:00)
+2019-07-19 20:40:00,015 INFO     Job "Command.check_settings (trigger: cron[minute='*/10'], next run at: 2019-07-19 20:50:00 MSK)" executed successfully
+2019-07-19 20:47:01,867 INFO      ***** Starting sopds-scan...
+2019-07-19 20:47:01,878 INFO     FB2SAX = True
+2019-07-19 21:12:51,565 WARNING  fb2-000024-030559.zip - 25453.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 11, column 37))
+2019-07-19 21:12:52,826 WARNING  fb2-000024-030559.zip - 25608.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 11, column 23))
+2019-07-19 21:38:09,807 WARNING  f.fb2-222969-225711.zip - 224826.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 7, column 20))
+2019-07-19 21:38:34,828 WARNING  fb2-119691-132107.zip - 120844.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3490, column 2))
+2019-07-19 21:38:34,905 WARNING  fb2-119691-132107.zip - 120845.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 1929, column 2))
+2019-07-19 21:38:35,124 WARNING  fb2-119691-132107.zip - 120867.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 2531, column 2))
+2019-07-19 21:38:35,162 WARNING  fb2-119691-132107.zip - 120869.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 1059, column 2))
+2019-07-19 21:38:35,320 WARNING  fb2-119691-132107.zip - 120882.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3763, column 2))
+2019-07-19 21:38:36,659 WARNING  fb2-119691-132107.zip - 121005.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3135, column 2))
+2019-07-19 21:38:53,537 WARNING  fb2-119691-132107.zip - 122485.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 132, column 2))
+2019-07-19 21:39:10,796 WARNING  fb2-119691-132107.zip - 124269.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 21:39:26,872 WARNING  fb2-119691-132107.zip - 126076.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 12, column 276))
+2019-07-19 21:39:29,784 WARNING  fb2-119691-132107.zip - 126390.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 9, column 216))
+2019-07-19 21:39:31,689 WARNING  fb2-119691-132107.zip - 126570.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 21, column 130))
+2019-07-19 21:39:32,374 WARNING  fb2-119691-132107.zip - 126620.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 23, column 2))
+2019-07-19 21:39:36,052 WARNING  fb2-119691-132107.zip - 129300.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 11, column 294))
+2019-07-19 21:39:36,085 WARNING  fb2-119691-132107.zip - 129304.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 10, column 277))
+2019-07-19 21:39:36,127 WARNING  fb2-119691-132107.zip - 129305.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 20, column 190))
+2019-07-19 21:39:37,934 WARNING  fb2-119691-132107.zip - 129556.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 13, column 165))
+2019-07-19 21:39:40,218 WARNING  fb2-119691-132107.zip - 129813.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 14, column 1))
+2019-07-19 22:18:11,018 WARNING  f.fb2-177718-183065.zip - 182116.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 22:20:12,586 WARNING  fb2-074392-091839.zip - 91582.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 15, column 2))
+2019-07-19 22:29:30,952 WARNING  f.fb2-386287-389890.zip - 386989.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 22:29:30,958 WARNING  f.fb2-386287-389890.zip - 386990.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 22:29:31,024 WARNING  f.fb2-386287-389890.zip - 386994.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 22:47:11,715 WARNING  f.fb2-270105-275617.zip - 271176.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 22:51:02,430 WARNING  f.fb2-513034-516388.zip - 514449.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2019-07-19 23:20:01,826 WARNING  f.fb2-173909-177717.zip - 174393.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 23:23:34,892 WARNING  f.fb2-322394-325325.zip - 323678.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2019-07-19 23:29:30,753 INFO     Books added      : 436672
+2019-07-19 23:29:30,754 INFO     Books skipped    : 0
+2019-07-19 23:29:30,754 INFO     Bad books        : 29
+2019-07-19 23:29:30,760 INFO     Books DB entries deleted : (0, {})
+2019-07-19 23:29:30,760 INFO     Books in archives: 436672
+2019-07-19 23:29:30,760 INFO     Archives scanned : 127
+2019-07-19 23:29:30,761 INFO     Archives skipped : 0
+2019-07-19 23:29:30,761 INFO     Bad archives     : 0
+2019-07-19 23:29:30,761 INFO     Time estimated:2 hours, 42 minutes, 28 seconds.
+2020-07-08 22:29:24,032 INFO      ***** Starting sopds-scan...
+2020-07-08 22:29:24,039 INFO     FB2SAX = True
+2020-07-08 22:35:25,050 WARNING  f.fb2-564404-566823.zip - 565029.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 22:38:07,902 WARNING  f.fb2-558303-560513.zip - 560337.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 22:43:27,940 WARNING  f.fb2-554453-556317.zip - 555555.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 22:49:48,921 WARNING  f.fb2-569506-572383.zip - 571291.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 22:54:54,507 WARNING  f.fb2-575486-577874.zip - 577835.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 22:57:55,557 WARNING  f.fb2-577875-580713.zip - 578384.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 23:05:19,463 WARNING  f.fb2-580714-583735.zip - 581943.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 23:05:22,059 WARNING  f.fb2-580714-583735.zip - 582023.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2020-07-08 23:16:15,539 INFO     Books added      : 34075
+2020-07-08 23:16:15,546 INFO     Books skipped    : 0
+2020-07-08 23:16:15,546 INFO     Bad books        : 8
+2020-07-08 23:16:15,548 INFO     Books DB entries deleted : (0, {})
+2020-07-08 23:16:15,548 INFO     Books in archives: 34075
+2020-07-08 23:16:15,548 INFO     Archives scanned : 17
+2020-07-08 23:16:15,549 INFO     Archives skipped : 127
+2020-07-08 23:16:15,549 INFO     Bad archives     : 0
+2020-07-08 23:16:15,549 INFO     Time estimated:0 hours, 46 minutes, 51 seconds.
+2021-07-23 01:18:11,186 INFO      ***** Starting sopds-scan...
+2021-07-23 01:18:11,199 INFO     FB2SAX = True
+2021-07-23 01:28:24,818 WARNING  f.fb2-591756-597992.zip - 592802.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:28:31,861 WARNING  f.fb2-591756-597992.zip - 593115.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:28:31,926 WARNING  f.fb2-591756-597992.zip - 593120.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:28:35,036 WARNING  f.fb2-591756-597992.zip - 593261.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:28:37,702 WARNING  f.fb2-591756-597992.zip - 593384.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:28:40,418 WARNING  f.fb2-591756-597992.zip - 593491.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:33:31,002 WARNING  f.fb2-588783-591755.zip - 589543.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:34:43,923 WARNING  f.fb2-586104-588782.zip - 588013.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:48:26,279 WARNING  f.fb2-600962-603842.zip - 602805.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:48:26,296 WARNING  f.fb2-600962-603842.zip - 602806.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:50:48,532 WARNING  f.fb2-606609-609591.zip - 606980.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:50:57,207 WARNING  f.fb2-606609-609591.zip - 607224.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 01:56:50,159 WARNING  f.fb2-583736-586103.zip - 584954.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2021-07-23 02:08:56,676 INFO     Books added      : 31538
+2021-07-23 02:08:56,682 INFO     Books skipped    : 0
+2021-07-23 02:08:56,682 INFO     Bad books        : 13
+2021-07-23 02:08:56,684 INFO     Books DB entries deleted : (0, {})
+2021-07-23 02:08:56,684 INFO     Books in archives: 31538
+2021-07-23 02:08:56,684 INFO     Archives scanned : 13
+2021-07-23 02:08:56,684 INFO     Archives skipped : 144
+2021-07-23 02:08:56,684 INFO     Bad archives     : 0
+2021-07-23 02:08:56,684 INFO     Time estimated:0 hours, 50 minutes, 45 seconds.
+2022-01-03 21:11:34,256 INFO      ***** Starting sopds-scan...
+2022-01-03 21:11:34,267 INFO     FB2SAX = True
+2022-01-03 21:52:09,967 INFO     Books added      : 13112
+2022-01-03 21:52:09,974 INFO     Books skipped    : 0
+2022-01-03 21:52:09,974 INFO     Bad books        : 0
+2022-01-03 21:52:09,976 INFO     Books DB entries deleted : (0, {})
+2022-01-03 21:52:09,977 INFO     Books in archives: 13112
+2022-01-03 21:52:09,977 INFO     Archives scanned : 5
+2022-01-03 21:52:09,977 INFO     Archives skipped : 157
+2022-01-03 21:52:09,977 INFO     Bad archives     : 0
+2022-01-03 21:52:09,977 INFO     Time estimated:0 hours, 40 minutes, 35 seconds.
+2022-06-22 22:00:01,294 INFO      ***** Starting sopds-scan...
+2022-06-22 22:00:01,303 INFO     FB2SAX = True
+2022-06-25 00:41:39,862 INFO      ***** Starting sopds-scan...
+2022-06-25 00:41:39,871 INFO     FB2SAX = True
+2022-06-25 01:41:40,418 INFO     Books added      : 19156
+2022-06-25 01:41:40,423 INFO     Books skipped    : 0
+2022-06-25 01:41:40,423 INFO     Bad books        : 0
+2022-06-25 01:41:40,425 INFO     Books DB entries deleted : (0, {})
+2022-06-25 01:41:40,425 INFO     Books in archives: 19156
+2022-06-25 01:41:40,426 INFO     Archives scanned : 6
+2022-06-25 01:41:40,426 INFO     Archives skipped : 162
+2022-06-25 01:41:40,426 INFO     Bad archives     : 0
+2022-06-25 01:41:40,426 INFO     Time estimated:1 hours, 0 minutes, 0 seconds.
+2023-01-02 04:06:59,888 INFO      ***** Starting sopds-scan...
+2023-01-02 04:06:59,898 INFO     FB2SAX = True
+2023-01-02 05:08:49,702 INFO     Books added      : 25978
+2023-01-02 05:08:49,708 INFO     Books skipped    : 0
+2023-01-02 05:08:49,708 INFO     Bad books        : 0
+2023-01-02 05:08:49,711 INFO     Books DB entries deleted : (0, {})
+2023-01-02 05:08:49,711 INFO     Books in archives: 25978
+2023-01-02 05:08:49,711 INFO     Archives scanned : 6
+2023-01-02 05:08:49,711 INFO     Archives skipped : 168
+2023-01-02 05:08:49,711 INFO     Bad archives     : 0
+2023-01-02 05:08:49,711 INFO     Time estimated:1 hours, 1 minutes, 49 seconds.
+2023-07-01 23:59:36,227 INFO      ***** Starting sopds-scan...
+2023-07-01 23:59:36,239 INFO     FB2SAX = True
+2023-07-02 01:18:19,987 INFO     Books added      : 28047
+2023-07-02 01:18:19,989 INFO     Books skipped    : 0
+2023-07-02 01:18:19,989 INFO     Bad books        : 0
+2023-07-02 01:18:19,991 INFO     Books DB entries deleted : (0, {})
+2023-07-02 01:18:19,991 INFO     Books in archives: 28047
+2023-07-02 01:18:19,991 INFO     Archives scanned : 6
+2023-07-02 01:18:19,991 INFO     Archives skipped : 174
+2023-07-02 01:18:19,992 INFO     Bad archives     : 0
+2023-07-02 01:18:19,992 INFO     Time estimated:1 hours, 18 minutes, 43 seconds.
+2024-01-03 10:53:32,557 INFO      ***** Starting sopds-scan...
+2024-01-03 10:53:32,578 INFO     FB2SAX = True
+2024-01-03 11:07:19,389 WARNING  f.fb2-564404-566823.zip - 565029.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:16,806 WARNING  f.fb2-591756-597992.zip - 592802.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:29,585 WARNING  f.fb2-591756-597992.zip - 593115.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:29,752 WARNING  f.fb2-591756-597992.zip - 593120.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:35,785 WARNING  f.fb2-591756-597992.zip - 593261.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:40,183 WARNING  f.fb2-591756-597992.zip - 593384.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:16:44,434 WARNING  f.fb2-591756-597992.zip - 593491.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:23:30,698 WARNING  f.fb2-558303-560513.zip - 560337.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:32:27,984 WARNING  f.fb2-588783-591755.zip - 589543.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 11:38:07,350 WARNING  f.fb2-586104-588782.zip - 588013.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 12:16:45,533 WARNING  fb2-000024-030559.zip - 25453.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 11, column 37))
+2024-01-03 12:16:47,465 WARNING  fb2-000024-030559.zip - 25608.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 11, column 23))
+2024-01-03 13:05:37,397 WARNING  f.fb2-554453-556317.zip - 555555.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 13:10:29,649 WARNING  f.fb2-600962-603842.zip - 602805.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 13:10:29,655 WARNING  f.fb2-600962-603842.zip - 602806.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 13:36:30,703 WARNING  f.fb2-222969-225711.zip - 224826.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 7, column 20))
+2024-01-03 13:37:10,495 WARNING  f.fb2-606609-609591.zip - 606980.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 13:37:21,520 WARNING  f.fb2-606609-609591.zip - 607224.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 13:39:08,819 WARNING  fb2-119691-132107.zip - 120844.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3490, column 2))
+2024-01-03 13:39:08,874 WARNING  fb2-119691-132107.zip - 120845.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 1929, column 2))
+2024-01-03 13:39:09,081 WARNING  fb2-119691-132107.zip - 120867.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 2531, column 2))
+2024-01-03 13:39:09,117 WARNING  fb2-119691-132107.zip - 120869.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 1059, column 2))
+2024-01-03 13:39:09,276 WARNING  fb2-119691-132107.zip - 120882.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3763, column 2))
+2024-01-03 13:39:11,702 WARNING  fb2-119691-132107.zip - 121005.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 3135, column 2))
+2024-01-03 13:39:45,423 WARNING  fb2-119691-132107.zip - 122485.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 132, column 2))
+2024-01-03 13:40:20,428 WARNING  fb2-119691-132107.zip - 124269.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 13:40:51,074 WARNING  fb2-119691-132107.zip - 126076.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 12, column 276))
+2024-01-03 13:40:57,996 WARNING  fb2-119691-132107.zip - 126390.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 9, column 216))
+2024-01-03 13:41:02,327 WARNING  fb2-119691-132107.zip - 126570.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 21, column 130))
+2024-01-03 13:41:03,596 WARNING  fb2-119691-132107.zip - 126620.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 23, column 2))
+2024-01-03 13:41:10,070 WARNING  fb2-119691-132107.zip - 129300.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 11, column 294))
+2024-01-03 13:41:10,109 WARNING  fb2-119691-132107.zip - 129304.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 10, column 277))
+2024-01-03 13:41:10,146 WARNING  fb2-119691-132107.zip - 129305.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 20, column 190))
+2024-01-03 13:41:13,318 WARNING  fb2-119691-132107.zip - 129556.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 13, column 165))
+2024-01-03 13:41:17,052 WARNING  fb2-119691-132107.zip - 129813.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (not well-formed (invalid token): line 14, column 1))
+2024-01-03 14:01:07,249 WARNING  f.fb2-569506-572383.zip - 571291.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 14:29:02,461 WARNING  f.fb2-575486-577874.zip - 577835.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 15:01:43,943 WARNING  f.fb2-583736-586103.zip - 584954.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 15:20:45,036 WARNING  f.fb2-177718-183065.zip - 182116.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 15:24:42,665 WARNING  fb2-074392-091839.zip - 91582.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (mismatched tag: line 15, column 2))
+2024-01-03 15:38:20,532 WARNING  f.fb2-577875-580713.zip - 578384.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 15:49:25,259 WARNING  f.fb2-386287-389890.zip - 386989.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 15:49:25,273 WARNING  f.fb2-386287-389890.zip - 386990.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 15:49:25,374 WARNING  f.fb2-386287-389890.zip - 386994.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 16:27:15,813 WARNING  f.fb2-270105-275617.zip - 271176.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 16:30:41,944 WARNING  f.fb2-580714-583735.zip - 581943.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 16:30:46,618 WARNING  f.fb2-580714-583735.zip - 582023.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 16:37:47,020 WARNING  f.fb2-513034-516388.zip - 514449.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (no element found: line 1, column 0))
+2024-01-03 17:35:10,000 WARNING  f.fb2-173909-177717.zip - 174393.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 17:41:01,426 WARNING  f.fb2-322394-325325.zip - 323678.fb2 Book parse error, skipping... (Error: fb2 verification failed: FB2sax parse error (encoding specified in XML declaration is incorrect: line 1, column 31))
+2024-01-03 18:10:41,628 INFO     Books added      : 610784
+2024-01-03 18:10:41,637 INFO     Books skipped    : 0
+2024-01-03 18:10:41,638 INFO     Bad books        : 50
+2024-01-03 18:10:41,681 INFO     Books DB entries deleted : (0, {})
+2024-01-03 18:10:41,682 INFO     Books in archives: 610784
+2024-01-03 18:10:41,683 INFO     Archives scanned : 187
+2024-01-03 18:10:41,683 INFO     Archives skipped : 0
+2024-01-03 18:10:41,683 INFO     Bad archives     : 0
+2024-01-03 18:10:41,684 INFO     Time estimated:7 hours, 17 minutes, 9 seconds.
+2024-06-05 00:43:32,951 INFO      ***** Starting sopds-scan...
+2024-06-05 00:43:32,964 INFO     FB2SAX = True
+2024-06-05 01:01:54,974 INFO     Books added      : 18420
+2024-06-05 01:01:54,978 INFO     Books skipped    : 0
+2024-06-05 01:01:54,978 INFO     Bad books        : 0
+2024-06-05 01:01:54,981 INFO     Books DB entries deleted : (0, {})
+2024-06-05 01:01:54,981 INFO     Books in archives: 18420
+2024-06-05 01:01:54,981 INFO     Archives scanned : 5
+2024-06-05 01:01:54,981 INFO     Archives skipped : 187
+2024-06-05 01:01:54,981 INFO     Bad archives     : 0
+2024-06-05 01:01:54,983 INFO     Time estimated:0 hours, 18 minutes, 22 seconds.
+2024-07-21 10:09:43,503 INFO      ***** Starting sopds-scan...
+2024-07-21 10:09:43,523 INFO     FB2SAX = True
+2024-07-21 10:12:51,748 INFO     Books added      : 0
+2024-07-21 10:12:51,752 INFO     Books skipped    : 0
+2024-07-21 10:12:51,752 INFO     Bad books        : 0
+2024-07-21 10:12:51,754 INFO     Books DB entries deleted : (0, {})
+2024-07-21 10:12:51,754 INFO     Books in archives: 0
+2024-07-21 10:12:51,754 INFO     Archives scanned : 0
+2024-07-21 10:12:51,755 INFO     Archives skipped : 192
+2024-07-21 10:12:51,755 INFO     Bad archives     : 0
+2024-07-21 10:12:51,755 INFO     Time estimated:0 hours, 3 minutes, 8 seconds.
+2025-01-03 23:03:49,425 INFO      ***** Starting sopds-scan...
+2025-01-03 23:03:49,439 INFO     FB2SAX = True
+2025-01-03 23:23:08,998 INFO     Books added      : 18962
+2025-01-03 23:23:09,001 INFO     Books skipped    : 0
+2025-01-03 23:23:09,001 INFO     Bad books        : 0
+2025-01-03 23:23:09,006 INFO     Books DB entries deleted : (0, {})
+2025-01-03 23:23:09,007 INFO     Books in archives: 18962
+2025-01-03 23:23:09,008 INFO     Archives scanned : 7
+2025-01-03 23:23:09,008 INFO     Archives skipped : 192
+2025-01-03 23:23:09,008 INFO     Bad archives     : 0
+2025-01-03 23:23:09,010 INFO     Time estimated:0 hours, 19 minutes, 19 seconds.
+2025-04-05 02:31:59,048 INFO      ***** Starting sopds-scan...
+2025-04-05 02:31:59,058 INFO     FB2SAX = True
+2025-04-05 02:40:29,706 INFO     Books added      : 5322
+2025-04-05 02:40:29,711 INFO     Books skipped    : 0
+2025-04-05 02:40:29,711 INFO     Bad books        : 0
+2025-04-05 02:40:29,713 INFO     Books DB entries deleted : (0, {})
+2025-04-05 02:40:29,713 INFO     Books in archives: 5322
+2025-04-05 02:40:29,714 INFO     Archives scanned : 2
+2025-04-05 02:40:29,714 INFO     Archives skipped : 199
+2025-04-05 02:40:29,714 INFO     Bad archives     : 0
+2025-04-05 02:40:29,717 INFO     Time estimated:0 hours, 8 minutes, 30 seconds.
+2025-08-07 19:16:34,935 INFO      ***** Starting sopds-scan...
+2025-08-07 19:16:34,947 INFO     FB2SAX = True
+2025-08-07 19:29:58,762 INFO     Books added      : 9960
+2025-08-07 19:29:58,766 INFO     Books skipped    : 0
+2025-08-07 19:29:58,766 INFO     Bad books        : 0
+2025-08-07 19:29:58,769 INFO     Books DB entries deleted : (0, {})
+2025-08-07 19:29:58,769 INFO     Books in archives: 9960
+2025-08-07 19:29:58,769 INFO     Archives scanned : 4
+2025-08-07 19:29:58,770 INFO     Archives skipped : 201
+2025-08-07 19:29:58,770 INFO     Bad archives     : 0
+2025-08-07 19:29:58,771 INFO     Time estimated:0 hours, 13 minutes, 23 seconds.
+2025-11-29 23:55:13,007 INFO      ***** Starting sopds-scan...
+2025-11-29 23:55:13,051 INFO     FB2SAX = True
+2025-11-29 23:55:44,185 WARNING  d.fb2-172703-173908.zip - 172725.fb2 Book parse error, skipping... (Error: Bad CRC-32 for file '172725.fb2')
+2025-11-29 23:56:33,617 INFO     Books added      : 1466
+2025-11-29 23:56:33,619 INFO     Books skipped    : 0
+2025-11-29 23:56:33,619 INFO     Bad books        : 1
+2025-11-29 23:56:33,628 INFO     Books DB entries deleted : (0, {})
+2025-11-29 23:56:33,628 INFO     Books in archives: 1466
+2025-11-29 23:56:33,628 INFO     Archives scanned : 2
+2025-11-29 23:56:33,628 INFO     Archives skipped : 0
+2025-11-29 23:56:33,629 INFO     Bad archives     : 0
+2025-11-29 23:56:33,629 INFO     Time estimated:0 hours, 1 minutes, 20 seconds.
