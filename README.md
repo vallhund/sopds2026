@@ -1,4 +1,4 @@
-[Инструкция на русском языке: README_RUS.md](https://github.com/vallhund/sopds2026/README_RUS.md)
+[Инструкция на русском языке: README_RUS.md](https://github.com/vallhund/sopds2026/blob/master/README_RUS.md)
 
 This is a fork of [SimpleOPDS by Dmitry V.Shelepnev](https://github.com/mitshel/sopds), adapted to work on modern systems in the year 2026
 
@@ -276,4 +276,5 @@ existing user in the Simple OPDS database.
 
 **SOPDS_TELEBOT_MAXITEMS** - The maximum number of simultaneously displayed items in the Telegram message
 (by default SOPDS_TELEBOT_MAXITEMS = 10)
+
 
