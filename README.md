@@ -17,7 +17,7 @@ Tested with Lubuntu 22, should work on Ubuntu derivates and Debian.
 Telegram bot functionality has not been tested
 
 #### 1. Installation
-1.1 Download the sopds-master folder from Github to a folder of your choice.
+1.1 Download the sopds folder from Github to a folder of your choice.
 
 1.2 Dependencies
 install necessary modules
@@ -276,5 +276,6 @@ existing user in the Simple OPDS database.
 
 **SOPDS_TELEBOT_MAXITEMS** - The maximum number of simultaneously displayed items in the Telegram message
 (by default SOPDS_TELEBOT_MAXITEMS = 10)
+
 
 
