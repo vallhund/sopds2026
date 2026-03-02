@@ -22,7 +22,7 @@ Telegram bot functionality has not been tested
 1.2 Dependencies
 install necessary modules
 
-    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
+    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-pillow python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
 
 For RHEL, Fedora, Arch, CentOS install the modules accordingly
 
@@ -276,6 +276,7 @@ existing user in the Simple OPDS database.
 
 **SOPDS_TELEBOT_MAXITEMS** - The maximum number of simultaneously displayed items in the Telegram message
 (by default SOPDS_TELEBOT_MAXITEMS = 10)
+
 
 
 
