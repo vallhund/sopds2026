@@ -22,7 +22,7 @@
 1.2 Зависимости
 Установить необходимые модули
 
-    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
+    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-pillow python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
 
 1.3 Настройить базу данных MySQL
 
@@ -265,4 +265,5 @@ ctrl+z
 
 **SOPDS_TELEBOT_MAXITEMS** - Максимальное число одновременно выводимых элеменов в сообщении Telegram
 (по умолчанию SOPDS_TELEBOT_MAXITEMS = 10)
+
 
