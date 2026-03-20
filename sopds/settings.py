@@ -97,7 +97,7 @@ DATABASES = {
         'PASSWORD' : 'sopds',
         'OPTIONS' : {
             'init_command': "SET default_storage_engine=MyISAM;\
-                             SET sql_mode='';"
+                             SET sql_mode='STRICT_ALL_TABLES';"
         }
     }             
 }
