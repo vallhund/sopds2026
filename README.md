@@ -17,14 +17,12 @@ Telegram bot functionality has not been tested
 #### 1. Installation
 1.1 Download the sopds folder from Github to a folder of your choice.
 
-1.2 Dependencies
-install necessary modules
+1.2 Install dependencies
 
     	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-pillow python3-lxml python3-python-telegram-bot 
 
-For RHEL, Fedora, Arch, CentOS install the modules accordingly
-
 1.3 Database
+
 1.3.1 Install and configure the PostgreSQL engine
 
 Install dependencies and then enter PostgreSQL command prompt: 
