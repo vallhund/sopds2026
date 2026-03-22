@@ -124,7 +124,11 @@ If all previous steps were successful, then the library can be accessed by the f
 >     OPDS-version: http://<Your server>:8001/opds/
 >     HTTP-version: http://<Your server>:8001/
 
-2.8 If necessary, configure and run Telegram-bot (NOT TESTED)
+2.8 Add this command to startup applications in order to launch SOPDS server when the system starts:
+
+	python3 /path/to/sopds/folder/manage.py sopds_server start --daemon
+
+2.9 If necessary, configure and run Telegram-bot (NOT TESTED)
 
 The process of creating bots in telegrams is very simple, to create your bot in Telegram, you need to connect to channel [@BotFather] (https://telegram.me/botfather) and give the command to create a new bot **/newbot**. Then enter the name of the bot (for example: **myopds**), and then the user name for this bot, which necessarily ends with "bot" (for example: **myopds_bot**).
 As a result, you will be given API_TOKEN, which you need to use in the following commands that will start your personal telegram-bot, which will allow you, using the Telegram instant messenger to get quick access to your personal library.
