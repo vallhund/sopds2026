@@ -1,10 +1,8 @@
-[Инструкция на русском языке: README_RUS.md](https://github.com/vallhund/sopds2026/blob/master/README_RUS.md)
-
 This is a fork of [SimpleOPDS by Dmitry V.Shelepnev](https://github.com/mitshel/sopds), adapted to work on modern systems in the year 2026
 
 Main changes:
 - code corrected for compatibility with recent python and python modules
-- default database engine is now MySQL because PostgreSQL doesn't handle emojis in file names easily
+- default database engine is now PostgreSQL because MySQL doesn't handle emojis in file names easily and SQLite is too slow for big libraries.
 - USER AUTHENTICATION IS OFF BY DEFAULT (change SOPDS_AUTH to True in sopds/settings.py to turn it on back again)
 - README.md rewritten to reflect the changes above
 
@@ -13,7 +11,7 @@ Not updated and not tested:
 - telegram bot
 - fb2epub conversion
 
-Tested with Lubuntu 22, should work on Ubuntu derivates and Debian.
+Tested with PostgreSQL 16 on Lubuntu 22 and Linux Mint 24, should work on Ubuntu derivates.
 Telegram bot functionality has not been tested
 
 #### 1. Installation
@@ -22,21 +20,67 @@ Telegram bot functionality has not been tested
 1.2 Dependencies
 install necessary modules
 
-    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-pillow python3-lxml python3-python-telegram-bot python3-mysqldb mysql-server
+    	sudo apt install python3 python3-django python3-apscheduler python3-django-constance python3-pillow python3-lxml python3-python-telegram-bot 
 
 For RHEL, Fedora, Arch, CentOS install the modules accordingly
 
-1.3 Configure the MySQL database
+1.3 Database
+1.3.1 Install and configure the PostgreSQL engine
 
+Install dependencies and then enter PostgreSQL command prompt: 
+
+	sudo apt-get install postgresql postgresql-client postgresql-contrib libpq-dev python3-psycopg2
+	sudo -u postgres psql postgres
+
+Set up the database: ("postgres=#" is the prompt, don't copy it);
+	
+	postgres=# create role sopds with password 'sopds' login;
+	postgres=# create database sopds with owner sopds;
+	exit;
+
+Now we need to edit a configuration file. In Ubuntu you need to know the installed version of postgres to find the folder where the file is located.
+
+	ls /etc/postgresql/
+
+The number shown is the version/versions installed. If you have several versions, use the latest.
+For version 16 enter the following command: (uses nano but you can use any other editor, substitute 16 in the command with your version)
+
+	sudo nano /etc/postgresql/16/main/pg_hba.conf 
+
+Substitute 16 with your version of PostgreSQL. 
+
+In the file, modify two lines:
+
+	local   all             all                                     peer
+	host    all             all             127.0.0.1/32            ident
+
+Should be: (change peer to md5)
+
+	local   all             all                                     md5
+	host    all             all             127.0.0.1/32            md5
+
+Press Ctrl+X and enter Y to save changes.
+
+Restart PostgreSQL
+
+	sudo service postgresql stop
+
+1.3.2 You can use MySQL instead of PostgreSQL but it does not handle strange filenames (e.g. with emojis) well.
+	
+	sudo apt install python3-mysqldb mysql-server
 	sudo mysql -uroot -proot_pass mysql
+
+Login to MySQL and set it up for sopds:
+
 	mysql> create database if not exists sopds default charset = utf8;
     create user 'sopds'@'localhost' identified by 'sopds';
 	mysql> grant all privileges on sopds. * to 'sopds'@'localhost'; //changed
 	mysql> commit;
-	mysql> ^ C
-ctrl+z
+	mysql> exit
 
-If you want to use the built-in slow Sqlite database (not recommended): in the sopds/settings.py comment out the DATABASES MySQL block, uncomment the DATABASES default block and then skip this step. 
+Uncomment the MySQL block in the DATABASES section of sopds/settings.py and make sure every other block (Postgres and SQLite are commented).
+
+1.3.3 If you want to use the built-in slow SQLite database (not recommended): in the sopds/settings.py comment out the DATABASES MySQL and PostgreSQL block, and uncomment the DATABASES last (third) block. 
 
 #### 2. Initialization
 
