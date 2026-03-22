@@ -96,7 +96,14 @@ Uncomment the MySQL block in the DATABASES section of sopds/settings.py and make
 	python3 manage.py sopds_util setconf SOPDS_ROOT_LIB 'Path to the directory with books'
 	python3 manage.py sopds_util setconf SOPDS_LANGUAGE en-EN
 
-2.4 Launch the SCANNER server (optional, required for automated periodic re-scanning of the collection)
+2.4 Launch a one-time scan of the library:
+
+	python3 manage.py sopds_scanner scan --verbose
+
+The scan can last from few minutes to several hours depending on your library and machine capabilities.
+Verbose mode lets you see if the scan has been finished succesfully or not.
+
+Or, launch the SCANNER server (optional, required for automated periodic re-scanning of the collection)
     Please note that the default settings specify a periodic scan start 2 times a day 12:00 and 0:00.
 
 	python3 manage.py sopds_scanner start --daemon
@@ -125,6 +132,10 @@ If all previous steps were successful, then the library can be accessed by the f
 2.8 Add this command to startup applications in order to launch SOPDS server when the system starts:
 
 	python3 /path/to/sopds/folder/manage.py sopds_server start --daemon
+
+If you want to launch the book scanner daemon at startup as well, add this command too:
+
+	python3 /path/to/sopds/folder/manage.py sopds_scanner start --daemon
 
 2.9 If necessary, configure and run Telegram-bot (NOT TESTED)
 
